@@ -1,0 +1,55 @@
+<div class="hero-section">
+  <div class="hero-container">
+    <!-- Left Section for Images/Content -->
+    <div class="left-content">
+      <img src="assets\abc.jpg" alt="Hero Image" class="hero-image" />
+
+
+      <p class="hero-text">
+        Explore the best job opportunities available right now.
+      </p>
+    </div>
+
+
+    <!-- Right Section for Login -->
+    <div class="login-container">
+      <div class="login-box">
+        <h2 class="login-title">Login to Your Account</h2>
+        <form (ngSubmit)="login()" class="login-form">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input
+              id="username"
+              type="text"
+              [(ngModel)]="username"
+              name="username"
+              required
+              placeholder="Enter your username"
+            />
+          </div>
+
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              id="password"
+              type="password"
+              [(ngModel)]="password"
+              name="password"
+              required
+              placeholder="Enter your password"
+            />
+          </div>
+
+
+          <button type="submit" class="login-button">Login</button>
+        </form>
+
+
+        <div class="login-footer">
+          <p>Don't have an account? <a href="javascript:void(0)" (click)="sin()">Sign up</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

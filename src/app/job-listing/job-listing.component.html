@@ -1,0 +1,84 @@
+<div class="container">
+  <!-- Side Navigation Bar -->
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav mode="side" opened class="sidenav">
+      <mat-toolbar color="primary" class="sidenav-header">
+        <span>JobPortal</span>
+      </mat-toolbar>
+      <mat-nav-list>
+        <a mat-list-item routerLink="/dashboard" routerLinkActive="active">
+          <mat-icon>dashboard</mat-icon>
+          <span>Dashboard</span>
+        </a>
+        <a mat-list-item routerLink="/profile" routerLinkActive="active">
+          <mat-icon>person</mat-icon>
+          <span>Profile</span>
+        </a>
+        <a mat-list-item routerLink="/applications" routerLinkActive="active">
+          <mat-icon>work</mat-icon>
+          <span>My Applications</span>
+        </a>
+        <a mat-list-item routerLink="/saved-jobs" routerLinkActive="active">
+          <mat-icon>bookmark</mat-icon>
+          <span>Saved Jobs</span>
+        </a>
+        <button mat-list-item color="warn" (click)="logout()">
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Logout</span>
+        </button>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <!-- Main Content -->
+    <mat-sidenav-content class="content">
+      <!-- Top Bar -->
+      <mat-toolbar color="primary" class="top-bar">
+        <div class="toolbar-left">
+          <span class="title">Find Your Dream Job</span>
+        </div>
+        <div class="search-bar">
+          <mat-form-field appearance="outline" class="search-field">
+            <mat-label>Search Jobs</mat-label>
+            <input
+              matInput
+              [(ngModel)]="searchKeyword"
+              placeholder="Search by title, company, or location"
+            />
+          </mat-form-field>
+          <button mat-raised-button color="accent" (click)="searchJobs()">Search</button>
+        </div>
+      </mat-toolbar>
+
+      <!-- Main Content Area -->
+      <div class="content-area">
+        <!-- No Jobs Message -->
+        <div *ngIf="jobs.length === 0" class="no-jobs-message">
+          <mat-icon>info</mat-icon>
+          <p>No jobs available for your search criteria.</p>
+        </div>
+
+        <!-- Job List -->
+        <div class="job-list">
+          <mat-card *ngFor="let job of jobs" class="job-card">
+            <mat-card-header>
+              <div class="job-header">
+                <mat-card-title>{{ job.title }}</mat-card-title>
+                <mat-card-subtitle>{{ job.company }}</mat-card-subtitle>
+              </div>
+            </mat-card-header>
+            <mat-card-content>
+              <p><strong>Location:</strong> {{ job.location }}</p>
+              <p><strong>Job Type:</strong> {{ job.jobType }}</p>
+            </mat-card-content>
+            <mat-card-actions align="end">
+              <button mat-raised-button color="primary" (click)="applyJob(job)">Apply</button>
+              <button mat-icon-button (click)="saveJob(job)" [color]="job.isSaved ? 'primary' : ''">
+                <mat-icon>{{ job.isSaved ? 'bookmark' : 'bookmark_border' }}</mat-icon>
+              </button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

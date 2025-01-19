@@ -1,0 +1,222 @@
+/* General Styles */
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* Ensure padding and border are included in element width/height */
+}
+
+/* Hero Section */
+.hero-section {
+  background: url('https://source.unsplash.com/1600x900/?office,career') no-repeat center center/cover;
+  height: 100vh;
+  position: relative;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.content {
+  z-index: 2;
+  max-width: 800px;
+  padding: 20px;
+}
+
+.hero-title {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  margin-bottom: 40px;
+  line-height: 1.5;
+}
+
+.hero-container {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  max-width: 1200px; /* Added a max-width for better control */
+  margin: auto;
+  gap: 20px;
+}
+
+.left-content {
+  flex: 1;
+  padding: 20px;
+  text-align: left;
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.hero-text {
+  font-size: 24px;
+  color: #333;
+  margin-top: 20px;
+}
+
+/* Login Container */
+.login-container {
+  display: flex;
+  justify-content: center;
+  flex: 0.4;
+  padding: 20px;
+}
+
+.login-box {
+  background-color: white;
+  width: 100%;
+  max-width: 400px;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  min-height: 300px;
+  z-index: 2;
+}
+
+.login-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Form Styles */
+.login-form {
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.form-group input {
+  width: 100%;
+  max-width: 100%; /* Prevents overflowing from parent container */
+  padding: 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-group input:hover {
+  border-color: #5c6bc0;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #3f51b5;
+  box-shadow: 0 0 8px rgba(63, 81, 181, 0.5);
+}
+
+/* Login Button */
+.login-button {
+  background-color: #3f51b5;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 15px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #303f9f;
+}
+
+.login-button:focus {
+  outline: 2px solid #1a237e;
+  box-shadow: 0 0 10px #1a237e;
+}
+
+/* Footer */
+.login-footer {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #757575;
+}
+
+.login-footer a {
+  color: #3f51b5;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 28px;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+  }
+
+  .hero-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .left-content {
+    text-align: center;
+  }
+
+  .login-box {
+    padding: 20px;
+    width: 90%; /* Ensures it fits smaller screen sizes */
+  }
+
+  .hero-image {
+    width: 80%;
+  }
+
+  .hero-text {
+    font-size: 16px;
+  }
+}
